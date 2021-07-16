@@ -6,3 +6,6 @@ To run: Please go to the file location and from the command line execute the bel
 ```python
 python q_learning.py
 ```
+---
+
+Reference: https://deeplizard.com/learn/video/QK_PP_2KgGE
