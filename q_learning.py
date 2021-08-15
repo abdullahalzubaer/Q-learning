@@ -1,10 +1,13 @@
-import numpy as np
-import gym
+import os
 import random
 import time
-import os
 
-env = gym.make("FrozenLake-v0")  # is_slippery=False, to remove stochastic nature of the env.
+import gym
+import numpy as np
+
+env = gym.make(
+    "FrozenLake-v0"
+)  # is_slippery=False, to remove stochastic nature of the env.
 
 action_space_size = env.action_space.n  # total number of unique action available
 state_space_size = env.observation_space.n  # total number of state
@@ -42,8 +45,11 @@ for episode in range(num_episodes):
         new_state, reward, done, info = env.step(action)  # Executing the action
 
         # Update the Q table
-        q_table[state, action] = q_table[state, action] + learning_rate * \
-            (reward + discount_rate * np.max(q_table[new_state, :]) - q_table[state, action])
+        q_table[state, action] = q_table[state, action] + learning_rate * (
+            reward
+            + discount_rate * np.max(q_table[new_state, :])
+            - q_table[state, action]
+        )
 
         state = new_state
         reward_current_episode += reward
@@ -51,15 +57,16 @@ for episode in range(num_episodes):
         if done == True:  # If episode is over start new episode
             break
 
-    exploration_rate = exploration_rate - exploration_rate * \
-        exploration_decay_rate  # reducing exploration rate after each episode
+    exploration_rate = (
+        exploration_rate - exploration_rate * exploration_decay_rate
+    )  # reducing exploration rate after each episode
     rewards_all_episodes.append(reward_current_episode)  # reward per episode
 
 # print(rewards_all_episodes) # To observe reward achieved in each epsiode as time goes by.
 
 
 def clear():  # For aesthetics
-    os.system('cls')
+    os.system("cls")
 
 
 clear()
