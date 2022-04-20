@@ -15,12 +15,35 @@ for each episode do:
 end
 ```
 
-To run: Please go to the file location and from the command line execute the below command.
+To execute the program
+
+Approach 1: Please go to the file location and from the command line execute the below command.
 
 
 ```python
 python q_learning.py
 ```
+
+Approach 2 (using docker):
+
+1. Build the docker image using the following command
+
+```
+docker build -t q_learning .
+```
+
+Then run and get inside the container (`we cannot use the python q_learning.py`) since it will run inside the container and we will not see anything form outside. Therefore we get inside the container using the following command (su means superuser)
+
+```
+docker run -it q_learning su
+```
+and then 
+
+```
+python q_learning.py
+
+```
+
 
 ---
 
