@@ -32,7 +32,7 @@ Approach 2 (using docker):
 docker build -t q_learning .
 ```
 
-Then run and get inside the container (`we cannot use the python q_learning.py`) since it will run inside the container and we will not see anything form outside. Therefore we get inside the container using the following command (su means superuser)
+Then run and get inside the container (`we cannot use the python q_learning.py`) since it will run inside the container and we will not see anything form outside. Therefore we get inside the container using the following command (su means superuser) [NOTE: I think I am wrong here and we can execute python q_learning.py, but since the output is a bit strange maybe that is why it was not working directly by using `docker run IMAGENAME`. Thats all I can say now. For example a simple hello world applicaiton that I have dockerized does show the output `hello world` when I execte this command `docker run IMAGENAME` :) ]
 
 ```
 docker run -it q_learning su
